@@ -23,4 +23,16 @@ describe('Calculator', () => {
 
         expect(getByTestId('ee-result__box').value).toEqual("9876543210");
       });
+
+      test('can use a decimal point', () => {
+        const { getByTestId, getByText } = render(<Calculator />)
+
+        fireEvent.click(getByText('1'))
+        fireEvent.click(getByText('.'))
+        fireEvent.click(getByText('6'))
+        fireEvent.click(getByText('6'))
+        fireEvent.click(getByText('6'))
+
+        expect(getByTestId('ee-result__box').value).toEqual("1.666");
+      });
 });
