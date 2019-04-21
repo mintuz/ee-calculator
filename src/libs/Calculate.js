@@ -23,7 +23,8 @@ export default class Calculate {
         let operatorToUse = '';
 
         const result = expressionSplit.reduce((result, value) => {
-            if (OPERATOR_REGEX.test(value)) {
+            const isOperator = OPERATOR_REGEX.test(value);
+            if (isOperator) {
                 operatorToUse = value;
                 return result;
             }
