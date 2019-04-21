@@ -63,7 +63,7 @@ describe('Calculator Button', () => {
                 AC
             </Button>
         );
-        expect(getByTestId('ee-button').classList.contains('ee-o-button--triple-double')).toEqual(true);
+        expect(getByTestId('ee-button').classList.contains('ee-o-button--span-triple')).toEqual(true);
     });
 
     test('Render attention className as primary on button by default.', () => {

@@ -1,6 +1,16 @@
 import React, { useState } from 'react';
 import Result from './components/Result';
 import Button from './components/Button';
+import Calculate from './libs/Calculate';
+
+const calculateMapping = {
+    '+': Calculate.add,
+    '-': Calculate.subtract,
+    '*': Calculate.multiply,
+    '/': Calculate.divide,
+};
+
+const OPERATOR_REGEX = /(\*|\+|\/|-)/g;
 
 const Calculator = () => {
     const [currentResult, setResult] = useState(0);
@@ -11,6 +21,34 @@ const Calculator = () => {
         if (operation === 'AC') {
             setResult(0);
             setAction([]);
+
+            return;
+        }
+
+        if (operation === '=')  {
+            const expression = previousActions.join('');
+
+            const expressionSplit = expression.split(OPERATOR_REGEX);
+            const firstNumber = expressionSplit.shift();
+
+            let operatorToUse = '';
+
+            const result = expressionSplit.reduce((result, value) => {
+                if (OPERATOR_REGEX.test(value)) {
+                    operatorToUse = value;
+                    return result;
+                }
+
+                if (operatorToUse) {
+                    return calculateMapping[operatorToUse](Number(result), Number(value));
+                }
+
+                return value;
+            }, firstNumber);
+
+            console.log(result);
+
+            setResult(result);
 
             return;
         }

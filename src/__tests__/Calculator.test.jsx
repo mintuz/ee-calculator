@@ -73,7 +73,7 @@ describe('Calculator', () => {
         ],
         [
             '200/2=', '100'
-        ]
+        ],
     ])('The result is correct for the following calculation (%s %s %s)', (expression, expectedValue) => {
         const { getByText, getByTestId } = render(<Calculator />);
 
@@ -81,6 +81,6 @@ describe('Calculator', () => {
             fireEvent.click(getByText(buttonToClick));
         });
 
-        expect(getByTestId('ee-result').value).toEqual(expectedValue);
+        expect(getByTestId('ee-result__box').value).toEqual(expectedValue);
     });
 });
