@@ -8,4 +8,8 @@ describe('Calculate', () => {
     test('Should subtract value from previous value', () => {
         expect(Calculate.subtract(10, 10)).toEqual(0);
     });
+
+    test('Should multiply values', () => {
+        expect(Calculate.multiply(10, 10)).toEqual(100);
+    });
 });
