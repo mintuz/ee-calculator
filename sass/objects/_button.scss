@@ -14,3 +14,22 @@
 .ee-o-button--span-triple {
     width: 225px;
 }
+
+.ee-o-button--primary {
+    color: $brand-blue;
+
+    &:focus,
+    &:hover {
+        background-color: darken($white, 5%);
+    }
+}
+
+.ee-o-button--secondary {
+    background-color: $brand-blue;
+    color: $white;
+
+    &:focus,
+    &:hover {
+        background-color: darken($brand-blue, 5%);
+    }
+}
