@@ -78,7 +78,7 @@ describe('Calculator', () => {
             '200/0=', '0'
         ],
         [
-            '2+2=2+2=', '8'
+            '2+2=+2=', '6'
         ]
     ])('The result is correct for the following calculation (%s %s %s)', (expression, expectedValue) => {
         const { getByText, getByTestId } = render(<Calculator />);

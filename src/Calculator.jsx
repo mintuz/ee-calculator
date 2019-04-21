@@ -21,6 +21,8 @@ const Calculator = () => {
             const result = Calculate.expression(expression);
 
             setResult(result);
+            setAction([result]);
+
             return;
         }
 
