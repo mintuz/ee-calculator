@@ -26,7 +26,7 @@ const Calculator = () => {
             return;
         }
 
-        if (operation === 0 && Number(currentResult) === 0) {
+        if (operation === 0 && currentResult === 0) {
             return;
         }
 
