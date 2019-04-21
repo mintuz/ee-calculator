@@ -46,8 +46,6 @@ const Calculator = () => {
                 return value;
             }, firstNumber);
 
-            console.log(result);
-
             setResult(result);
 
             return;
