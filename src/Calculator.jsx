@@ -7,6 +7,14 @@ const Calculator = () => {
     const [previousActions, setAction ] = useState([]);
 
     const calculate = operation => {
+
+        if (operation === 'AC') {
+            setResult(0);
+            setAction([]);
+
+            return;
+        }
+
         const newActions = [...previousActions, operation];
 
         setAction(newActions);

@@ -24,7 +24,7 @@ describe('Calculator', () => {
         expect(getByTestId('ee-result__box').value).toEqual("9876543210");
       });
 
-      test('can use a decimal point', () => {
+    test('can use a decimal point', () => {
         const { getByTestId, getByText } = render(<Calculator />)
 
         fireEvent.click(getByText('1'))
@@ -34,5 +34,18 @@ describe('Calculator', () => {
         fireEvent.click(getByText('6'))
 
         expect(getByTestId('ee-result__box').value).toEqual("1.666");
-      });
+    });
+
+    test('Result is reset on memory clear', () => {
+        const { getByTestId, getByText } = render(<Calculator />);
+
+        fireEvent.click(getByText('1'));
+        fireEvent.click(getByText('2'));
+
+        expect(getByTestId('ee-result__box').value).toEqual("12");
+
+        fireEvent.click(getByText('AC'));
+
+        expect(getByTestId('ee-result__box').value).toEqual("0");
+    });
 });
