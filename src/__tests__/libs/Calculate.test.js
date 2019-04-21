@@ -1,19 +1,20 @@
 import Calculate from '../../libs/calculate';
 
 describe('Calculate', () => {
-    test('Should add value to previous value', () => {
-        expect(Calculate.add(10, 10)).toEqual(20);
+    test.each([
+        ['2*2', 4],
+        ['2-2', 0],
+        ['2+3', 5],
+        ['2/2', 1],
+        ['2/0', 0],
+        ['a/5', 0],
+        ['2*2*2', 8],
+        ['2+2+2', 6],
+        ['2-2-2', -2],
+        ['20/2/2', 5],
+        ['0.9+0.1', 1],
+        ['0.9-0.1', 0.8],
+    ])('Should calculate the expression %s correctly', (expression, expected) => {
+        expect(Calculate.expression(expression)).toEqual(expected);
     });
-
-    test('Should subtract value from previous value', () => {
-        expect(Calculate.subtract(10, 10)).toEqual(0);
-    });
-
-    test('Should multiply values', () => {
-        expect(Calculate.multiply(10, 10)).toEqual(100);
-    });
-
-    test('Should divide value by', () => {
-        expect(Calculate.divide(10, 10)).toEqual(1);
-    });
-});
+})
