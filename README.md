@@ -7,8 +7,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 https://mintuz.github.io/ee-calculator/
 
 ## Requirements
-Npm 6.7.0 (Developed with this version, may work with others)
-Node 11.14.0 (Developed with this version, may work with others)
+* Npm 6.7.0 (Developed with this version, may work with others)
+* Node 11.14.0 (Developed with this version, may work with others)
 
 ## Available Scripts
 
