@@ -52,4 +52,17 @@ describe('Calculator Button', () => {
         );
         expect(getByTestId('ee-button').classList.contains('ee-o-button--span-double')).toEqual(true);
     });
+
+    test('Render triple span className on button.', () => {
+        const {
+            getByTestId
+        } = render(
+            <Button
+                triple
+            >
+                AC
+            </Button>
+        );
+        expect(getByTestId('ee-button').classList.contains('ee-o-button--triple-double')).toEqual(true);
+    });
 });
