@@ -1,12 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
+import Calculator from './Calculator';
 
-class App extends Component {
-  render() {
-    return (
-      <div>
-      </div>
-    );
-  }
-}
+const App = () => {
+  return (
+    <Calculator />
+  );
+};
 
 export default App;
