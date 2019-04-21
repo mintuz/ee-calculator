@@ -1,0 +1,13 @@
+.ee-c-header {
+    display: flex;
+    justify-content: center;
+    color: $brand-blue;
+    padding-top: $double-spacing-unit;
+    padding-left: $double-spacing-unit;
+    padding-right: $double-spacing-unit;
+}
+
+.ee-c-header__logo {
+    display: block;
+    width: 50%;
+}
