@@ -26,6 +26,6 @@ describe('Calculator Button', () => {
         } = render(<Button onClick={eventCallback}>+</Button>);
 
         fireEvent.click(getByTestId('ee-button'));
-        expect(eventCallback).toHaveBeenCalled();
+        expect(eventCallback).toHaveBeenCalledWith('+');
     });
 });
