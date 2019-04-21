@@ -48,4 +48,39 @@ describe('Calculator', () => {
 
         expect(getByTestId('ee-result__box').value).toEqual("0");
     });
+
+    test.each([
+        [
+            '1+1=', '2'
+        ],
+        [
+            '1-1=', '0'
+        ],
+        [
+            '2*2=', '4'
+        ],
+        [
+            '2/2=', '1'
+        ],
+        [
+            '200*2=', '400'
+        ],
+        [
+            '200+200=', '400'
+        ],
+        [
+            '200-100=', '100'
+        ],
+        [
+            '200/2=', '100'
+        ]
+    ])('The result is correct for the following calculation (%s %s %s)', (expression, expectedValue) => {
+        const { getByText, getByTestId } = render(<Calculator />);
+
+        expression.split('').forEach(buttonToClick => {
+            fireEvent.click(getByText(buttonToClick));
+        });
+
+        expect(getByTestId('ee-result').value).toEqual(expectedValue);
+    });
 });
