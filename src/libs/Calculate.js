@@ -8,4 +8,7 @@ export default class Calculate {
     static multiply(previousValue, toMultiplyBy) {
         return previousValue * toMultiplyBy;
     }
+    static divide(previousValue, toDivideBy) {
+        return previousValue / toDivideBy;
+    }
 }

@@ -12,4 +12,8 @@ describe('Calculate', () => {
     test('Should multiply values', () => {
         expect(Calculate.multiply(10, 10)).toEqual(100);
     });
+
+    test('Should divide value by', () => {
+        expect(Calculate.divide(10, 10)).toEqual(1);
+    });
 });
