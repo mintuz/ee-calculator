@@ -65,4 +65,28 @@ describe('Calculator Button', () => {
         );
         expect(getByTestId('ee-button').classList.contains('ee-o-button--triple-double')).toEqual(true);
     });
+
+    test('Render attention className as primary on button by default.', () => {
+        const {
+            getByTestId
+        } = render(
+            <Button>
+                AC
+            </Button>
+        );
+        expect(getByTestId('ee-button').classList.contains('ee-o-button')).toEqual(true);
+        expect(getByTestId('ee-button').classList.contains('ee-o-button--primary')).toEqual(true);
+    });
+
+    test('Override attention className on button.', () => {
+        const {
+            getByTestId
+        } = render(
+            <Button attention="secondary">
+                AC
+            </Button>
+        );
+        expect(getByTestId('ee-button').classList.contains('ee-o-button')).toEqual(true);
+        expect(getByTestId('ee-button').classList.contains('ee-o-button--secondary')).toEqual(true);
+    });
 });

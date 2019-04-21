@@ -25,27 +25,27 @@ const Calculator = () => {
         <div className="ee-c-calculator">
             <Result value={currentResult} />
             <div className="ee-c-calculator__controls">
-                <Button triple onClick={calculate}>AC</Button>
-                <Button onClick={calculate}>/</Button>
+                <Button attention="secondary" triple onClick={calculate}>AC</Button>
+                <Button attention="secondary" onClick={calculate}>/</Button>
 
                 <Button onClick={calculate}>{7}</Button>
                 <Button onClick={calculate}>{8}</Button>
                 <Button onClick={calculate}>{9}</Button>
-                <Button onClick={calculate}>*</Button>
+                <Button attention="secondary" onClick={calculate}>*</Button>
 
                 <Button onClick={calculate}>{4}</Button>
                 <Button onClick={calculate}>{5}</Button>
                 <Button onClick={calculate}>{6}</Button>
-                <Button onClick={calculate}>-</Button>
+                <Button attention="secondary" onClick={calculate}>-</Button>
 
                 <Button onClick={calculate}>{1}</Button>
                 <Button onClick={calculate}>{2}</Button>
                 <Button onClick={calculate}>{3}</Button>
-                <Button onClick={calculate}>+</Button>
+                <Button attention="secondary" onClick={calculate}>+</Button>
 
                 <Button onClick={calculate}>{0}</Button>
                 <Button onClick={calculate}>.</Button>
-                <Button double onClick={calculate}>=</Button>
+                <Button attention="secondary" double onClick={calculate}>=</Button>
             </div>
         </div>
     );
