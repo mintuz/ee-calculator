@@ -5,4 +5,7 @@ export default class Calculate {
     static subtract(previousValue, toSubtract) {
         return previousValue - toSubtract;
     }
+    static multiply(previousValue, toMultiplyBy) {
+        return previousValue * toMultiplyBy;
+    }
 }
