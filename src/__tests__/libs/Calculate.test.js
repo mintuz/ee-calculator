@@ -4,4 +4,8 @@ describe('Calculate', () => {
     test('Should add value to previous value', () => {
         expect(Calculate.add(10, 10)).toEqual(20);
     });
+
+    test('Should subtract value from previous value', () => {
+        expect(Calculate.subtract(10, 10)).toEqual(0);
+    });
 });
