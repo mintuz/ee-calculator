@@ -95,7 +95,7 @@ describe('Calculator', () => {
         [
             '1.5+1.5=', '3'
         ]
-    ])('The result is correct for the following calculation (%s %s %s)', (expression, expectedValue) => {
+    ])('The calculation is correct for the following button presses (%s)', (expression, expectedValue) => {
         const { getByText, getByTestId } = render(<Calculator />);
 
         expression.split('').forEach(buttonToClick => {
