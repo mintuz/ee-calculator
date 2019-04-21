@@ -1,1 +1,16 @@
-@import 'config';
+/* Settings */
+@import "config";
+
+/* Base */
+@import 'base/reset';
+
+/* Objects */
+@import 'objects/button';
+
+/* Components */
+@import 'components/header';
+@import 'components/result';
+@import 'components/calculator';
+
+/* Utils */
+@import 'utils/visually-hidden';
