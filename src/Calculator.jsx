@@ -5,13 +5,13 @@ import Calculate from './libs/Calculate';
 
 const Calculator = () => {
     const [currentResult, setResult] = useState(0);
-    const [previousActions, setAction ] = useState([0]);
+    const [previousActions, setAction ] = useState([]);
 
     const calculate = operation => {
 
         if (operation === 'AC') {
             setResult(0);
-            setAction([0]);
+            setAction([]);
 
             return;
         }
@@ -23,10 +23,6 @@ const Calculator = () => {
             setResult(result);
             setAction([result]);
 
-            return;
-        }
-
-        if (operation === '.' && previousActions.includes('.')) {
             return;
         }
 

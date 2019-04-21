@@ -91,6 +91,9 @@ describe('Calculator', () => {
         ],
         [
             '2-3=+1=', '0'
+        ],
+        [
+            '1.5+1.5=', '3'
         ]
     ])('The result is correct for the following calculation (%s %s %s)', (expression, expectedValue) => {
         const { getByText, getByTestId } = render(<Calculator />);
@@ -100,21 +103,6 @@ describe('Calculator', () => {
         });
 
         expect(getByTestId('ee-result__box').value).toEqual(expectedValue);
-    });
-
-    test('Only one decimal point can be used for a number.', () => {
-        const { getByText, getByTestId } = render(<Calculator />);
-
-        const decimalButton = getByText('.');
-        const oneButton = getByText('1');
-
-        fireEvent.click(oneButton);
-        fireEvent.click(decimalButton);
-        fireEvent.click(oneButton);
-        fireEvent.click(decimalButton);
-        fireEvent.click(oneButton);
-
-        expect(getByTestId('ee-result__box').value).toEqual("1.11");
     });
 
     test('Trailing zeros are removed.', () => {
