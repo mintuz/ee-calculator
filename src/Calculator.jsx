@@ -5,13 +5,13 @@ import Calculate from './libs/Calculate';
 
 const Calculator = () => {
     const [currentResult, setResult] = useState(0);
-    const [previousActions, setAction ] = useState([]);
+    const [previousActions, setAction ] = useState([0]);
 
     const calculate = operation => {
 
         if (operation === 'AC') {
             setResult(0);
-            setAction([]);
+            setAction([0]);
 
             return;
         }
@@ -30,7 +30,7 @@ const Calculator = () => {
             return;
         }
 
-        if (operation === 0 && currentResult === 0) {
+        if (operation === 0 && Number(currentResult) === 0) {
             return;
         }
 
