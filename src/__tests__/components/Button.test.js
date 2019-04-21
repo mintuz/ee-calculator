@@ -28,4 +28,28 @@ describe('Calculator Button', () => {
         fireEvent.click(getByTestId('ee-button'));
         expect(eventCallback).toHaveBeenCalledWith('+');
     });
+
+    test('Call event on button click button.', () => {
+        const eventCallback = jest.fn();
+
+        const {
+            getByTestId, debug
+        } = render(<Button onClick={eventCallback}>+</Button>);
+
+        fireEvent.click(getByTestId('ee-button'));
+        expect(eventCallback).toHaveBeenCalledWith('+');
+    });
+
+    test('Render double span className on button.', () => {
+        const {
+            getByTestId
+        } = render(
+            <Button
+                double
+            >
+                AC
+            </Button>
+        );
+        expect(getByTestId('ee-button').classList.contains('ee-o-button--span-double')).toEqual(true);
+    });
 });
