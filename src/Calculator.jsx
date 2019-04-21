@@ -33,7 +33,7 @@ const Calculator = () => {
 
             let operatorToUse = '';
 
-            const result = expressionSplit.reduce((result, value) => {
+            let result = expressionSplit.reduce((result, value) => {
                 if (OPERATOR_REGEX.test(value)) {
                     operatorToUse = value;
                     return result;
@@ -45,6 +45,10 @@ const Calculator = () => {
 
                 return value;
             }, firstNumber);
+
+            if (Number.isNaN(result) || !Number.isFinite(result)) {
+                result = 0;
+            }
 
             setResult(result);
 
