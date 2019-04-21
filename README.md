@@ -14,6 +14,9 @@ https://mintuz.github.io/ee-calculator/
 
 In the project directory, you can run:
 
+### `npm install`
+Will install project and development dependencies for the project to run locally.
+
 ### `npm start`
 
 Runs the app in the development mode.<br>
