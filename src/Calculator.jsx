@@ -55,6 +55,10 @@ const Calculator = () => {
             return;
         }
 
+        if (operation === '.' && previousActions.includes('.')) {
+            return;
+        }
+
         const newActions = [...previousActions, operation];
 
         setAction(newActions);
