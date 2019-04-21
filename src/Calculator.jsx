@@ -22,7 +22,7 @@ const Calculator = () => {
     };
 
     return (
-        <React.Fragment>
+        <div className="ee-c-calculator">
             <Result value={currentResult} />
             <div className="ee-c-calculator__controls">
                 <Button onClick={calculate}>AC</Button>
@@ -47,7 +47,7 @@ const Calculator = () => {
                 <Button onClick={calculate}>.</Button>
                 <Button onClick={calculate}>=</Button>
             </div>
-        </React.Fragment>
+        </div>
     );
 };
 
