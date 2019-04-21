@@ -101,4 +101,18 @@ describe('Calculator', () => {
 
         expect(getByTestId('ee-result__box').value).toEqual("1.11");
     });
+
+    test('Trailing zeros are removed.', () => {
+        const {getByTestId, getByText} = render(<Calculator />);
+
+        const zeroDigit = getByText('0');
+        const oneDigit = getByText('1');
+
+        fireEvent.click(zeroDigit)
+        fireEvent.click(zeroDigit)
+        expect(getByTestId('ee-result__box').value).toEqual("0");
+
+        fireEvent.click(oneDigit)
+        expect(getByTestId('ee-result__box').value).toEqual("1");
+    });
 });
