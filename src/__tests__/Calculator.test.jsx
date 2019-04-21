@@ -79,6 +79,18 @@ describe('Calculator', () => {
         ],
         [
             '2+2=+2=', '6'
+        ],
+        [
+            '2+0.5=', '2.5'
+        ],
+        [
+            '2-0.5=', '1.5'
+        ],
+        [
+            '2-3=', '-1'
+        ],
+        [
+            '2-3=+1=', '0'
         ]
     ])('The result is correct for the following calculation (%s %s %s)', (expression, expectedValue) => {
         const { getByText, getByTestId } = render(<Calculator />);
