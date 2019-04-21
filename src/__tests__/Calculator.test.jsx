@@ -86,4 +86,19 @@ describe('Calculator', () => {
 
         expect(getByTestId('ee-result__box').value).toEqual(expectedValue);
     });
+
+    test('Only one decimal point can be used for a number.', () => {
+        const { getByText, getByTestId } = render(<Calculator />);
+
+        const decimalButton = getByText('.');
+        const oneButton = getByText('1');
+
+        fireEvent.click(oneButton);
+        fireEvent.click(decimalButton);
+        fireEvent.click(oneButton);
+        fireEvent.click(decimalButton);
+        fireEvent.click(oneButton);
+
+        expect(getByTestId('ee-result__box').value).toEqual("1.11");
+    });
 });
