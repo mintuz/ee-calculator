@@ -3,7 +3,9 @@ import Calculator from './Calculator';
 
 const App = () => {
   return (
-    <Calculator />
+    <div className="ee-container">
+      <Calculator />
+    </div>
   );
 };
 

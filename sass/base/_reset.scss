@@ -7,3 +7,17 @@ body {
     padding: 0;
     font-family: $font-family;
 }
+
+html,
+body,
+#root,
+.ee-container {
+    width: 100%;
+    height: 100%;
+}
+
+.ee-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
