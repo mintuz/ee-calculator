@@ -13,9 +13,7 @@ const StyledResult = styled.div`
 export const Calculator = () => {
   return (
     <StyledCalculator>
-      <StyledResult>
-        <span>The calculated result is</span> 40
-      </StyledResult>
+      <StyledResult>The calculated result is 0</StyledResult>
       <div>
         <button>1</button>
         <button>2</button>
