@@ -12,4 +12,8 @@ describe("Calculate lib", () => {
   test("Should multiply value", () => {
     expect(multiply(10, 10)).toEqual(100);
   });
+
+  test("Should divide value by", () => {
+    expect(divide(10, 10)).toEqual(1);
+  });
 });

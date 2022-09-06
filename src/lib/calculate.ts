@@ -9,3 +9,7 @@ export const subtract = (previousValue: number, toSubtract: number) => {
 export const multiply = (previousValue: number, toMultiplyBy: number) => {
   return previousValue * toMultiplyBy;
 };
+
+export const divide = (previousValue: number, toDivideBy: number) => {
+  return previousValue / toDivideBy;
+};
