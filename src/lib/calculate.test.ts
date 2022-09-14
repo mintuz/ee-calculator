@@ -1,19 +1,11 @@
-import { add, subtract, multiply, divide } from "./calculate";
+import { calculate } from "./calculate";
 
 describe("Calculate lib", () => {
-  test("Should add value to previous value", () => {
-    expect(add(10, 10)).toEqual(20);
+  test("calculate 2*2", () => {
+    expect(calculate("2*2")).toEqual(4);
   });
 
-  test("Should subtract value from previous value", () => {
-    expect(subtract(10, 10)).toEqual(0);
-  });
-
-  test("Should multiply value", () => {
-    expect(multiply(10, 10)).toEqual(100);
-  });
-
-  test("Should divide value by", () => {
-    expect(divide(10, 10)).toEqual(1);
+  test("calculate 2/2", () => {
+    expect(calculate("2/2")).toEqual(1);
   });
 });

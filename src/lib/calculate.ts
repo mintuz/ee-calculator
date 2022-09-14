@@ -1,15 +1,38 @@
-export const add = (previousValue: number, toAdd: number) => {
-  return previousValue + toAdd;
+const calculateMapping: {
+  "*": (x: number, y: number) => number;
+  "/": (x: number, y: number) => number;
+} = {
+  "*": (x: number, y: number) => {
+    return x * y;
+  },
+  "/": (x: number, y: number) => {
+    return x / y;
+  },
 };
 
-export const subtract = (previousValue: number, toSubtract: number) => {
-  return previousValue - toSubtract;
+const OPERATOR_REGEX = /(\*|\/)/g;
+
+const isOperator = (value: any): value is "/" | "*" => {
+  return OPERATOR_REGEX.test(value);
 };
 
-export const multiply = (previousValue: number, toMultiplyBy: number) => {
-  return previousValue * toMultiplyBy;
-};
+export const calculate = (expression: string): number => {
+  const [firstNumber, ...expressionSplit] = expression.split(OPERATOR_REGEX);
 
-export const divide = (previousValue: number, toDivideBy: number) => {
-  return previousValue / toDivideBy;
+  let operatorToUse: "/" | "*" | "" = "";
+
+  const result: number = expressionSplit.reduce((result, value) => {
+    if (isOperator(value)) {
+      operatorToUse = value;
+      return result;
+    }
+
+    if (operatorToUse) {
+      return calculateMapping[operatorToUse](Number(result), Number(value));
+    }
+
+    return Number(value);
+  }, Number(firstNumber));
+
+  return result;
 };
