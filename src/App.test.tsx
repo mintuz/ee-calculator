@@ -44,3 +44,34 @@ test("Result is reset on memory clear", () => {
 
   expect(screen.getByText("The calculated result is 0")).toBeInTheDocument();
 });
+
+test.each([
+  ["1+1=", "2"],
+  ["1-1=", "0"],
+  ["2*2=", "4"],
+  ["2/2=", "1"],
+  ["200*2=", "400"],
+  ["200+200=", "400"],
+  ["200-100=", "100"],
+  ["200/2=", "100"],
+  ["200/0=", "0"],
+  ["2+2=+2=", "6"],
+  ["2+0.5=", "2.5"],
+  ["2-0.5=", "1.5"],
+  ["2-3=", "-1"],
+  ["2-3=+1=", "0"],
+  ["1.5+1.5=", "3"],
+])(
+  "The calculation is correct for the following button presses (%s)",
+  (expression, expectedValue) => {
+    render(<App />);
+
+    expression.split("").forEach((buttonToClick) => {
+      fireEvent.click(screen.getByText(buttonToClick));
+    });
+
+    expect(
+      screen.getByText(`The calculated result is ${expectedValue}`)
+    ).toBeInTheDocument();
+  }
+);

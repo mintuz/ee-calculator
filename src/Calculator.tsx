@@ -1,6 +1,6 @@
 import { FC, useState } from "react";
 import styled from "styled-components";
-import { Operators } from "./lib/calculate";
+import { calculate, Operators } from "./lib/calculate";
 
 const StyledCalculator = styled.div`
   max-width: 300px;
@@ -12,20 +12,7 @@ const StyledResult = styled.div`
   padding: 16px;
 `;
 
-type CalculatorOperations =
-  | 1
-  | 2
-  | 3
-  | 4
-  | 5
-  | 6
-  | 7
-  | 8
-  | 9
-  | 0
-  | "="
-  | "AC"
-  | Operators;
+type CalculatorOperations = number | "=" | "AC" | Operators;
 
 type ButtonProps = {
   children: string | number;
@@ -48,10 +35,20 @@ export const Calculator = () => {
   const [previousActions, setAction] = useState<CalculatorOperations[]>([]);
   const [currentResult, setResult] = useState<string>("0");
 
-  const calculate = (operation: CalculatorOperations) => {
+  const calculateOnClick = (operation: CalculatorOperations) => {
     if (operation === "AC") {
       setResult("0");
       setAction([]);
+
+      return;
+    }
+
+    if (operation === "=") {
+      const expression = previousActions.join("");
+      const result = calculate(expression);
+
+      setResult(`${result}`);
+      setAction([result]);
 
       return;
     }
@@ -65,25 +62,23 @@ export const Calculator = () => {
     <StyledCalculator>
       <StyledResult>The calculated result is {currentResult}</StyledResult>
       <div>
-        <Button onClick={calculate}>0</Button>
-        <Button onClick={calculate}>1</Button>
-        <Button onClick={calculate}>2</Button>
-        <Button onClick={calculate}>3</Button>
-        <Button onClick={calculate}>4</Button>
-        <Button onClick={calculate}>5</Button>
-        <Button onClick={calculate}>6</Button>
-        <Button onClick={calculate}>7</Button>
-        <Button onClick={calculate}>8</Button>
-        <Button onClick={calculate}>9</Button>
-        <Button onClick={calculate}>.</Button>
-        <Button onClick={calculate}>AC</Button>
-        {/* <Button>+</Button>
-        <Button>-</Button>
-        <Button>/</Button>
-        <Button>*</Button>
-
-        <Button>=</Button>
-        <Button>AC</Button> */}
+        <Button onClick={calculateOnClick}>0</Button>
+        <Button onClick={calculateOnClick}>1</Button>
+        <Button onClick={calculateOnClick}>2</Button>
+        <Button onClick={calculateOnClick}>3</Button>
+        <Button onClick={calculateOnClick}>4</Button>
+        <Button onClick={calculateOnClick}>5</Button>
+        <Button onClick={calculateOnClick}>6</Button>
+        <Button onClick={calculateOnClick}>7</Button>
+        <Button onClick={calculateOnClick}>8</Button>
+        <Button onClick={calculateOnClick}>9</Button>
+        <Button onClick={calculateOnClick}>.</Button>
+        <Button onClick={calculateOnClick}>AC</Button>
+        <Button onClick={calculateOnClick}>=</Button>
+        <Button onClick={calculateOnClick}>+</Button>
+        <Button onClick={calculateOnClick}>-</Button>
+        <Button onClick={calculateOnClick}>/</Button>
+        <Button onClick={calculateOnClick}>*</Button>
       </div>
     </StyledCalculator>
   );
