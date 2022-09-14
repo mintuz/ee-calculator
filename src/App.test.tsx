@@ -26,7 +26,7 @@ test("Calculator buttons are available and clickable", () => {
   ];
 
   availableDigits.forEach((digit) => {
-    fireEvent.click(screen.getByText(digit));
+    fireEvent.click(screen.getByRole("button", { name: digit }));
   });
 
   expect(
@@ -37,14 +37,14 @@ test("Calculator buttons are available and clickable", () => {
 test("Result is reset on memory clear", () => {
   render(<App />);
 
-  fireEvent.click(screen.getByText("1"));
-  fireEvent.click(screen.getByText("2"));
+  fireEvent.click(screen.getByRole("button", { name: "1" }));
+  fireEvent.click(screen.getByRole("button", { name: "2" }));
 
   expect(
     screen.getByLabelText("The calculated result is 12").innerHTML
   ).toEqual("12");
 
-  fireEvent.click(screen.getByText("AC"));
+  fireEvent.click(screen.getByRole("button", { name: "AC" }));
 
   expect(screen.getByLabelText("The calculated result is 0").innerHTML).toEqual(
     "0"
@@ -73,7 +73,7 @@ test.each([
     render(<App />);
 
     expression.split("").forEach((buttonToClick) => {
-      fireEvent.click(screen.getByText(buttonToClick));
+      fireEvent.click(screen.getByRole("button", { name: buttonToClick }));
     });
 
     expect(
@@ -82,3 +82,23 @@ test.each([
     ).toEqual(expectedValue);
   }
 );
+
+test("Trailing zeros are removed.", () => {
+  render(<App />);
+
+  const zeroDigit = screen.getByRole("button", { name: "0" });
+  const oneDigit = screen.getByRole("button", { name: "1" });
+
+  fireEvent.click(zeroDigit);
+  fireEvent.click(zeroDigit);
+
+  expect(screen.getByLabelText("The calculated result is 0").innerHTML).toEqual(
+    "0"
+  );
+
+  fireEvent.click(oneDigit);
+
+  expect(screen.getByLabelText("The calculated result is 1").innerHTML).toEqual(
+    "1"
+  );
+});

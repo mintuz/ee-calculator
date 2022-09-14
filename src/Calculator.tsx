@@ -83,6 +83,10 @@ export const Calculator = () => {
       return;
     }
 
+    if (operation === 0 && currentResult === "0") {
+      return;
+    }
+
     const newActions = [...previousActions, operation];
     setAction(newActions);
     setResult(newActions.join(""));
