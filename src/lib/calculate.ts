@@ -1,6 +1,8 @@
 const calculateMapping: {
   "*": (x: number, y: number) => number;
   "/": (x: number, y: number) => number;
+  "+": (x: number, y: number) => number;
+  "-": (x: number, y: number) => number;
 } = {
   "*": (x: number, y: number) => {
     return x * y;
@@ -8,11 +10,17 @@ const calculateMapping: {
   "/": (x: number, y: number) => {
     return x / y;
   },
+  "+": (x: number, y: number) => {
+    return x + y;
+  },
+  "-": (x: number, y: number) => {
+    return x - y;
+  },
 };
 
-const OPERATOR_REGEX = /(\*|\/)/g;
+const OPERATOR_REGEX = /(\*|\+|\/|-)/g;
 
-const isOperator = (value: any): value is "/" | "*" => {
+const isOperator = (value: any): value is "/" | "*" | "+" | "-" => {
   return OPERATOR_REGEX.test(value);
 };
 
