@@ -1,9 +1,8 @@
-const calculateMapping: {
-  "*": (x: number, y: number) => number;
-  "/": (x: number, y: number) => number;
-  "+": (x: number, y: number) => number;
-  "-": (x: number, y: number) => number;
-} = {
+export type Operators = "*" | "/" | "+" | "-";
+
+type CalculateMethods = Record<Operators, (x: number, y: number) => number>;
+
+const calculateMapping: CalculateMethods = {
   "*": (x: number, y: number) => {
     return x * y;
   },
@@ -20,14 +19,14 @@ const calculateMapping: {
 
 const OPERATOR_REGEX = /(\*|\+|\/|-)/g;
 
-const isOperator = (value: any): value is "/" | "*" | "+" | "-" => {
+const isOperator = (value: any): value is Operators => {
   return OPERATOR_REGEX.test(value);
 };
 
 export const calculate = (expression: string): number => {
   const [firstNumber, ...expressionSplit] = expression.split(OPERATOR_REGEX);
 
-  let operatorToUse: "/" | "*" | "" = "";
+  let operatorToUse: Operators | "" = "";
 
   const result: number = expressionSplit.reduce((result, value) => {
     if (isOperator(value)) {

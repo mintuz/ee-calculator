@@ -1,5 +1,6 @@
 import { FC, useState } from "react";
 import styled from "styled-components";
+import { Operators } from "./lib/calculate";
 
 const StyledCalculator = styled.div`
   max-width: 300px;
@@ -22,12 +23,9 @@ type CalculatorOperations =
   | 8
   | 9
   | 0
-  | "+"
-  | "-"
-  | "*"
-  | "/"
   | "="
-  | "AC";
+  | "AC"
+  | Operators;
 
 type ButtonProps = {
   children: string | number;
