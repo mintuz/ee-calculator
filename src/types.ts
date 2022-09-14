@@ -1,3 +1,3 @@
 import { Operators } from "./lib";
 
-export type CalculatorOperations = number | "=" | "AC" | Operators;
+export type CalculatorOperations = number | "=" | "AC" | "." | Operators;

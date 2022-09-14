@@ -2,18 +2,18 @@ import { FC } from "react";
 import { CalculatorOperations } from "../types";
 
 type ButtonProps = {
-  children: string | number;
+  value: CalculatorOperations;
   onClick: (operation: CalculatorOperations) => void;
 };
 
-export const Button: FC<ButtonProps> = ({ children, onClick }) => {
+export const Button: FC<ButtonProps> = ({ value, onClick }) => {
   return (
     <button
       onClick={() => {
-        onClick(children);
+        onClick(value);
       }}
     >
-      {children}
+      {value}
     </button>
   );
 };

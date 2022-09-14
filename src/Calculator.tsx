@@ -41,23 +41,23 @@ export const Calculator = () => {
     <StyledCalculator>
       <Result value={currentResult} />
       <div>
-        <Button onClick={calculateOnClick}>0</Button>
-        <Button onClick={calculateOnClick}>1</Button>
-        <Button onClick={calculateOnClick}>2</Button>
-        <Button onClick={calculateOnClick}>3</Button>
-        <Button onClick={calculateOnClick}>4</Button>
-        <Button onClick={calculateOnClick}>5</Button>
-        <Button onClick={calculateOnClick}>6</Button>
-        <Button onClick={calculateOnClick}>7</Button>
-        <Button onClick={calculateOnClick}>8</Button>
-        <Button onClick={calculateOnClick}>9</Button>
-        <Button onClick={calculateOnClick}>.</Button>
-        <Button onClick={calculateOnClick}>AC</Button>
-        <Button onClick={calculateOnClick}>=</Button>
-        <Button onClick={calculateOnClick}>+</Button>
-        <Button onClick={calculateOnClick}>-</Button>
-        <Button onClick={calculateOnClick}>/</Button>
-        <Button onClick={calculateOnClick}>*</Button>
+        <Button onClick={calculateOnClick} value={0} />
+        <Button onClick={calculateOnClick} value={1} />
+        <Button onClick={calculateOnClick} value={2} />
+        <Button onClick={calculateOnClick} value={3} />
+        <Button onClick={calculateOnClick} value={4} />
+        <Button onClick={calculateOnClick} value={5} />
+        <Button onClick={calculateOnClick} value={6} />
+        <Button onClick={calculateOnClick} value={7} />
+        <Button onClick={calculateOnClick} value={8} />
+        <Button onClick={calculateOnClick} value={9} />
+        <Button onClick={calculateOnClick} value="." />
+        <Button onClick={calculateOnClick} value="AC" />
+        <Button onClick={calculateOnClick} value="=" />
+        <Button onClick={calculateOnClick} value="+" />
+        <Button onClick={calculateOnClick} value="-" />
+        <Button onClick={calculateOnClick} value="*" />
+        <Button onClick={calculateOnClick} value="/" />
       </div>
     </StyledCalculator>
   );
