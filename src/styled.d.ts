@@ -10,7 +10,7 @@ declare module "styled-components" {
     colors: {
       siteBackground: string;
       calculatorBackground: string;
-      accent: string;
+      border: string;
       buttonBackground: string;
       buttonForeground: string;
       buttonFocusBackground: string;

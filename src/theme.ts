@@ -7,7 +7,8 @@ const designTokens = {
     white: "rgb(255, 255, 255)",
     transparent: "transparent",
     brand: "rgb(0, 148, 215)",
-    grey: "rgb(240, 240, 240)",
+    lightGrey: "rgb(240, 240, 240)",
+    darkGrey: "rgb(180, 180, 180)",
   },
 };
 
@@ -22,8 +23,8 @@ export const theme: DefaultTheme = {
     modularScale(2, "1rem"),
   ],
   colors: {
-    accent: designTokens.colors.brand,
-    siteBackground: designTokens.colors.grey,
+    border: designTokens.colors.darkGrey,
+    siteBackground: designTokens.colors.lightGrey,
     calculatorBackground: designTokens.colors.white,
     buttonBackground: designTokens.colors.brand,
     buttonForeground: designTokens.colors.white,
