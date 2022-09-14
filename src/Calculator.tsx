@@ -1,35 +1,14 @@
-import { FC, useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
-import { calculate, Operators } from "./lib/calculate";
+import { Result, Button } from "./components";
+import { calculate } from "./lib";
+import { CalculatorOperations } from "./types";
 
 const StyledCalculator = styled.div`
   max-width: 300px;
   width: 100%;
   background-color: rgb(255, 255, 255);
 `;
-
-const StyledResult = styled.div`
-  padding: 16px;
-`;
-
-type CalculatorOperations = number | "=" | "AC" | Operators;
-
-type ButtonProps = {
-  children: string | number;
-  onClick: (operation: CalculatorOperations) => void;
-};
-
-const Button: FC<ButtonProps> = ({ children, onClick }) => {
-  return (
-    <button
-      onClick={() => {
-        onClick(children);
-      }}
-    >
-      {children}
-    </button>
-  );
-};
 
 export const Calculator = () => {
   const [previousActions, setAction] = useState<CalculatorOperations[]>([]);
@@ -60,7 +39,7 @@ export const Calculator = () => {
 
   return (
     <StyledCalculator>
-      <StyledResult>The calculated result is {currentResult}</StyledResult>
+      <Result value={currentResult} />
       <div>
         <Button onClick={calculateOnClick}>0</Button>
         <Button onClick={calculateOnClick}>1</Button>
