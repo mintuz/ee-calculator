@@ -42,5 +42,9 @@ export const calculate = (expression: string): number => {
     return Number(value);
   }, Number(firstNumber));
 
+  if (Number.isNaN(result) || !Number.isFinite(result)) {
+    return 0;
+  }
+
   return result;
 };
