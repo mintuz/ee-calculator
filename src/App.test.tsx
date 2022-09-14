@@ -3,7 +3,9 @@ import { App } from "./App";
 
 test("Output is initially set to 0", () => {
   render(<App />);
-  expect(screen.getByText("The calculated result is 0")).toBeInTheDocument();
+  expect(screen.getByLabelText("The calculated result is 0").innerHTML).toEqual(
+    "0"
+  );
 });
 
 test("Calculator buttons are available and clickable", () => {
@@ -28,8 +30,8 @@ test("Calculator buttons are available and clickable", () => {
   });
 
   expect(
-    screen.getByText("The calculated result is 9.876543210")
-  ).toBeInTheDocument();
+    screen.getByLabelText("The calculated result is 9.876543210").innerHTML
+  ).toEqual("9.876543210");
 });
 
 test("Result is reset on memory clear", () => {
@@ -38,11 +40,15 @@ test("Result is reset on memory clear", () => {
   fireEvent.click(screen.getByText("1"));
   fireEvent.click(screen.getByText("2"));
 
-  expect(screen.getByText("The calculated result is 12")).toBeInTheDocument();
+  expect(
+    screen.getByLabelText("The calculated result is 12").innerHTML
+  ).toEqual("12");
 
   fireEvent.click(screen.getByText("AC"));
 
-  expect(screen.getByText("The calculated result is 0")).toBeInTheDocument();
+  expect(screen.getByLabelText("The calculated result is 0").innerHTML).toEqual(
+    "0"
+  );
 });
 
 test.each([
@@ -71,7 +77,8 @@ test.each([
     });
 
     expect(
-      screen.getByText(`The calculated result is ${expectedValue}`)
-    ).toBeInTheDocument();
+      screen.getByLabelText(`The calculated result is ${expectedValue}`)
+        .innerHTML
+    ).toEqual(expectedValue);
   }
 );
