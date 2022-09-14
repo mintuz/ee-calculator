@@ -2,6 +2,7 @@
   "name": "ee-calculator",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://mintuz.github.io/ee-calculator",
   "dependencies": {
     "polished": "^4.2.2",
     "react": "^18.2.0",
