@@ -51,6 +51,13 @@ export const Calculator = () => {
   const [currentResult, setResult] = useState<string>("0");
 
   const calculate = (operation: CalculatorOperations) => {
+    if (operation === "AC") {
+      setResult("0");
+      setAction([]);
+
+      return;
+    }
+
     const newActions = [...previousActions, operation];
     setAction(newActions);
     setResult(newActions.join(""));
@@ -71,6 +78,7 @@ export const Calculator = () => {
         <Button onClick={calculate}>8</Button>
         <Button onClick={calculate}>9</Button>
         <Button onClick={calculate}>.</Button>
+        <Button onClick={calculate}>AC</Button>
         {/* <Button>+</Button>
         <Button>-</Button>
         <Button>/</Button>
