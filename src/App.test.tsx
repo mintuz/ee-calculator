@@ -102,3 +102,14 @@ test("Trailing zeros are removed.", () => {
     "1"
   );
 });
+
+test("Calculate Factorial", () => {
+  render(<App />);
+
+  fireEvent.click(screen.getByRole("button", { name: "6" }));
+  fireEvent.click(screen.getByRole("button", { name: "x!" }));
+
+  expect(
+    screen.getByLabelText("The calculated result is 720").innerHTML
+  ).toEqual("720");
+});

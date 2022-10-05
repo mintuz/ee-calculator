@@ -23,7 +23,7 @@ const StyledCalculatorControls = styled.ul`
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: auto;
   grid-template-areas:
-    "ac ac equals equals"
+    "fact ac equals equals"
     "seven eight nine multiply"
     "four five six divide"
     "one two three add"
@@ -52,6 +52,7 @@ const CONTROLS: { value: CalculatorOperations; gridLocation: string }[] = [
   { gridLocation: "seven", value: 7 },
   { gridLocation: "eight", value: 8 },
   { gridLocation: "nine", value: 9 },
+  { gridLocation: "fact", value: "x!" },
   { gridLocation: "ac", value: "AC" },
   { gridLocation: "equals", value: "=" },
   { gridLocation: "add", value: "+" },
@@ -69,6 +70,20 @@ export const Calculator = () => {
     if (operation === "AC") {
       setResult("0");
       setAction([]);
+
+      return;
+    }
+
+    if (operation === "x!") {
+      const expression = Array.from(
+        { length: Number(previousActions.join("")) },
+        (_, index) => index + 1
+      ).join("*");
+
+      const result = calculate(expression);
+
+      setResult(`${result}`);
+      setAction([result]);
 
       return;
     }
